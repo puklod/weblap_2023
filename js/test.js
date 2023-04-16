@@ -1,0 +1,1 @@
+const navdiv = document.querySelector('#navbar');
