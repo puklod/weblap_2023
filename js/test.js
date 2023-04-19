@@ -1,11 +1,16 @@
 const navdiv = document.querySelector('#navbar');
 const navicon = document.querySelector('#navicon');
-const menuItems = ["Egy", "Kettő", "Három"];
+const menuItems = ["Egy", "Kettő", "Három", "Négy"];
 
-displayNavicon();
+navicon.appendChild(createNavigation());
 
-function displayNavicon() {
-    let windowWidth = window.innerWidth;
+function createNavigation() {
+    const ul = document.createElement('ul');
+    for (const itemName of menuItems) {
+        let li = document.createElement('li');
+        li.setAttribute('id',itemName);
+        ul.appendChild(li);
+    }
 
-    if(windowWidth < 550) navicon.style.display = 'none';
-};
+    return ul;
+}
