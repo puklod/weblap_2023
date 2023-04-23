@@ -1,0 +1,31 @@
+#container {
+    display:flex;
+    justify-content: center;
+}
+
+#navbar {
+    width: 30vW;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+}
+
+#navicon {
+    text-align: center;
+    background-color: green;
+}
+
+#navul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#nav {
+    
+}
+
+.menuitem {
+    list-style: none;
+    margin: 3vW;
+}

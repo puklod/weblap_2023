@@ -1,26 +1,35 @@
-const navdiv = document.querySelector('#navbar');
-const navicon = document.querySelector('#navicon');
+const navBar = document.querySelector('#navbar');
+const navIcon = document.querySelector('#navicon');
 const menuItems = ["Egy", "Kettő", "Három", "Négy"];
 
-navicon.addEventListener('click',() => navigationEvent(navicon));
+navIcon.addEventListener('click',() => navigationEvent(navBar));
 
 function createNavigation() {
+    const nav = document.createElement('nav');
+        nav.setAttribute('id', 'nav');
     const ul = document.createElement('ul');
-        ul.setAttribute('id',"navUl");
+        ul.setAttribute('id',"navul");
+        ul.setAttribute('class', 'container');
     
     for (const itemName of menuItems) {
         let li = document.createElement('li');
-        li.setAttribute('id',itemName);
+            li.innerHTML = itemName;
+            li.setAttribute('id',itemName);
+            li.setAttribute('class',"menuitem");
         ul.appendChild(li);
     }
 
-    return ul;
+    nav.appendChild(ul);
+
+    return nav;
 }
 
 function navigationEvent(obj) {
-    if(obj.hasChildNodes('ul')){
-        obj.removeChild(obj.childNodes[0]);
-    } else {
+    const nav = document.querySelector('#nav');
+    
+    if(nav == null){
         obj.appendChild(createNavigation());
+    } else {
+        obj.removeChild(nav);
     }
 }
