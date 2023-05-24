@@ -1,0 +1,31 @@
+@font-face {
+    font-family: redressed;
+    src: url(/font/redressed.ttf);
+}
+
+body {
+    margin:0;
+    padding:0;
+    background: url(/image/body_background.png);
+}
+
+#wellcome {
+}
+
+#galery {
+}
+
+#calculation {
+}
+
+#contact {
+}
+
+#teszt > #document > html {
+    background: red;
+}
+
+#map {
+    width: 50vw;
+    height: 50vw;
+}
