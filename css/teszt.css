@@ -9,3 +9,11 @@
     height: 300px;
     background: green;
 }
+
+#suggestionareainputone {
+    position: absolute;
+}
+
+#suggestionareainputtwo {
+    position: absolute;
+}

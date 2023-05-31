@@ -26,13 +26,18 @@ const inputFieldsData = {
 
 inputFields.inputOne.addEventListener('input', () => inputEventListener(inputFieldsData.inputOneName, inputFieldsData.inputOneSuggestionAreaName));
 inputFields.inputTwo.addEventListener('input', () => inputEventListener(inputFieldsData.inputTwoName, inputFieldsData.inputTwoSuggestionAreaName));
+inputFields.inputOne.addEventListener('click', () => inputEventListener(inputFieldsData.inputOneName, inputFieldsData.inputOneSuggestionAreaName));
+inputFields.inputTwo.addEventListener('click', () => inputEventListener(inputFieldsData.inputTwoName, inputFieldsData.inputTwoSuggestionAreaName));
+this.addEventListener('click', () => removeSuggestionField(inputFieldsData.inputOneSuggestionAreaName));
 
 
 async function inputEventListener(inputName, suggestionAreaName) {
     await buildDatabase(inputName);
     await setInputFieldsData(inputName);
     await setSuggestionField(inputName, suggestionAreaName);
-    await calculatePrice();
+    if(inputFieldsData.inputOneAddress !== null && inputFieldsData.inputTwoAddress !== null){
+        await calculateDistance();
+    }
 }
 
 async function buildDatabase(inputName) {
@@ -64,41 +69,6 @@ async function fetchJson(userInput) {
     return json;
 }
 
-
-async function clearInputFieldsData(inputName) {
-    inputFieldsData[inputName + "Address"] = null;
-    inputFieldsData[inputName + "X"] = null;
-    inputFieldsData[inputName + "Y"] = null;
-}
-
-
-async function setSuggestionField(inputName, suggestionAreaName) {
-    await removeSuggestionField(suggestionAreaName);
-    await createSuggestionField(inputName, suggestionAreaName);
-}
-
-async function removeSuggestionField(suggestionAreaName) {
-    if(inputFields[suggestionAreaName].firstChild !== null){
-        inputFields[suggestionAreaName].removeChild(inputFields[suggestionAreaName].firstChild);
-    }
-}
-
-async function createSuggestionField(inputName, suggestionAreaName) {
-    const suggestions = document.createElement('div');
-    for(let address of dataBase.addressArray){
-        let p = document.createElement('p');
-            p.innerHTML = address;
-            p.addEventListener('click', () => {
-                inputFields[inputName].value = p.innerHTML;
-                setInputFieldsData(inputName);
-                removeSuggestionField(suggestionAreaName);
-            })
-            suggestions.appendChild(p);
-    }
-
-    inputFields[suggestionAreaName].appendChild(suggestions);
-}
-
 async function setInputFieldsData(inputName) {
     await clearInputFieldsData(inputName);
 
@@ -112,7 +82,52 @@ async function setInputFieldsData(inputName) {
     }
 }
 
-async function calculatePrice() {
+async function clearInputFieldsData(inputName) {
+    inputFieldsData[inputName + "Address"] = null;
+    inputFieldsData[inputName + "X"] = null;
+    inputFieldsData[inputName + "Y"] = null;
+}
+
+async function setSuggestionField(inputName, suggestionAreaName) {
+    await removeSuggestionField(suggestionAreaName);
+    await createSuggestionField(inputName, suggestionAreaName);
+}
+
+async function createSuggestionField(inputName, suggestionAreaName) {
+    const suggestions = document.createElement('div');
+    for(let address of dataBase.addressArray){
+        if(inputFields[inputName].value === address) {
+            removeSuggestionField(suggestionAreaName);
+            break;
+        }
+        let p = document.createElement('p');
+            p.innerHTML = address;
+            p.addEventListener('click', () => {
+                clickEvent(address,inputName,suggestionAreaName)
+            })
+            suggestions.appendChild(p);
+    }
+
+    inputFields[suggestionAreaName].appendChild(suggestions);
+}
+
+async function clickEvent(inputFieldsValue,inputName,suggestionAreaName) {
+    inputFields[inputName].value = inputFieldsValue;
+    await setInputFieldsData(inputName);
+    removeSuggestionField(suggestionAreaName);
+    if(inputFieldsData.inputOneAddress !== null && inputFieldsData.inputTwoAddress !== null){
+        await calculateDistance();
+    }
+}
+
+async function removeSuggestionField(suggestionAreaName) {
+    if(inputFields[suggestionAreaName].firstChild !== null){
+        inputFields[suggestionAreaName].removeChild(inputFields[suggestionAreaName].firstChild);
+    }
+}
+
+async function calculateDistance() {
+    console.log("hello")
     if(inputFieldsData.inputOneAddress !== null && inputFieldsData.inputTwoAddress !== null){
         const lat1 = inputFieldsData.inputOneY;
         const lon1 = inputFieldsData.inputOneX;
