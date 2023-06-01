@@ -5,8 +5,8 @@ const galery = {
     rightArrow: document.querySelector('#right-arrow'),
     imgElement: document.querySelector('#container'),
     imgFilePath: "image/galery/",
-    imgExtension: ".jpg",
-    size: 4,
+    imgExtension: ".webp",
+    size: 6,
     delay: 5000,
 };
 

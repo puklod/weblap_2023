@@ -9,7 +9,23 @@ body {
     background: url(/image/body_background.png);
 }
 
+#beforecontent {
+    text-align: center;
+}
+
+#content {
+    width: 80vw;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 #wellcome {
+font-family:'Raleway', sans-serif;
+font-weight:bold;
+font-size:24px;
+line-height:34px;
+text-align: justify;
 }
 
 #galery {

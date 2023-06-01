@@ -4,54 +4,63 @@
         <link rel="stylesheet" href="css/page.css">
         <link rel="stylesheet" href="css/navigation.css">
         <link rel="stylesheet" href="css/galery.css">
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-     crossorigin=""/>
-        <link rel="stylesheet" href="/css/leaflet-routing-machine.css" />
-        <link rel="stylesheet" href="/css/Control.Geocoder.css" />
+        <link rel="stylesheet" href="css/calculation.css">
         <script src="https://kit.fontawesome.com/8a2925c7fe.js" crossorigin="anonymous"></script>
     </head>
     <body>
-    <div id="navbar">
-        <div id="navigation">
-            <div id="navicon">
-                <i class="fa-solid fa-bars"></i>
+        <div id="navbar">
+            <div id="navigation">
+                <div id="navicon">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <nav id="menu"></nav>
             </div>
-            <nav id="menu"></nav>
+            <div id="logo">
+                <img src="/image/logo.webp" alt="logo">
+            </div>
         </div>
-        <div id="logo">
-            <img src="/image/logo.webp" alt="logo">
+    <div id="beforecontent">
+        <div id="content">
+            <div id="wellcome">
+                <p><span>Our company main characteristics are quality with good prices and maximum realibility.</span></p>
+                <p><span> We offer services during the whole year 0-24. We provide comfortable travel with our luxury category car, 
+                    from Budapest to every neighbouring country and vice versa.</span></p>
+                <p><span>We offer door to door services with stops and sightseeing possibilities, considering the desires of our clients.</span></p>
+                <p><span>With questions please reach out to our support.</span><br>
+                <span>For offers use the dedicated contact form.</span></p>
+            </div>
+            <div id="galery">
+                <div id="container">
+                    <div id="left-arrow" class="galery-arrow">
+                        <i class="fa-solid fa-circle-chevron-left"></i>
+                    </div>
+                    <div id="right-arrow" class="galery-arrow">
+                        <i class="fa-solid fa-circle-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div id="calculation">
+                <div id="calculationinputfield">
+                    <div>
+                        <input type="text" id="inputone">
+                        <div id="suggestionareainputone"></div>
+                    </div>
+                    <div>
+                        <input type="text" id="inputtwo">
+                        <div id="suggestionareainputtwo"></div>
+                    </div>
+                    <input type="button" value="calculate" id="calculationbutton">
+                </div>
+                <div id="calculationpricefield">
+                    <span>Calculated price:</span>
+                    <span id="europricefield">0 €</span>
+                    <span id="hufpricefield">0 HUF</span>
+                </div>
+            </div>
         </div>
     </div>
-        <div id="wellcome">
-            <p>SZIASZTOK! Ez egy hosszabb bevezető szöveg lesz!</p>
-            <p>SZIASZTOK! Ez egy hosszabb bevezető szöveg lesz!</p>
-            <p>SZIASZTOK! Ez egy hosszabb bevezető szöveg lesz!</p>
-            <p>SZIASZTOK! Ez egy hosszabb bevezető szöveg lesz!</p>
-            <p>SZIASZTOK! Ez egy hosszabb bevezető szöveg lesz!</p>
-            <p>SZIASZTOK! Ez egy hosszabb bevezető szöveg lesz!</p>
-            <p>SZIASZTOK! Ez egy hosszabb bevezető szöveg lesz!</p>
-            <p>SZIASZTOK! Ez egy hosszabb bevezető szöveg lesz!</p>
-        </div>
-        <div id="galery">
-            <div id="container">
-                <div id="left-arrow" class="galery-arrow">
-                    <i class="fa-solid fa-circle-chevron-left"></i>
-                </div>
-                <div id="right-arrow" class="galery-arrow">
-                    <i class="fa-solid fa-circle-chevron-right"></i>
-                </div>
-             </div>
-        </div>
-        <div id="calculation">
-        </div>
         <script src="js/navigation.js"></script>
         <script src="js/galery.js"></script>
-        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""></script>
-        <script src="/js/leaflet-routing-machine.js"></script>
-        <script src="/js/Control.Geocoder.js"></script>
-        <script src="js/map.js"></script>
+        <script src="js/calculation.js"></script>
     </body>
 </html>
