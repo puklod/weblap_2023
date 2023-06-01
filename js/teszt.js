@@ -1,4 +1,6 @@
 const dataBase = {
+    countryArray: [],
+    cityArray: [],
     addressArray: [],
     locationLongitudeArray: [],
     locationLatitudeArray: [],
@@ -17,11 +19,15 @@ const inputFields = {
 const inputFieldsData = {
     inputOneName: "inputOne",
     inputOneSuggestionAreaName: "suggestionAreaInputOne",
+    inputOneCountry: null,
+    inputOneCity: null,
     inputOneAddress: null,
     inputOneLongitude: null,
     inputOneLatitude: null,
     inputTwoName: "inputTwo",
     inputTwoSuggestionAreaName: "suggestionAreaInputTwo",
+    inputTwoCountry: null,
+    inputTwoCity: null,
     inputTwoAddress: null,
     inputTwoLongitude: null,
     inputTwoLatitude: null,
@@ -49,6 +55,8 @@ async function buildDatabase(inputName) {
     let currentArrayId = 0;
 
     for(let data of rawData){
+        dataBase.countryArray[currentArrayId] = data.country;
+        dataBase.cityArray[currentArrayId] = data.city;
         dataBase.addressArray[currentArrayId] = data.address;
         dataBase.locationLongitudeArray[currentArrayId] = data.location.x;
         dataBase.locationLatitudeArray[currentArrayId] = data.location.y;
@@ -64,7 +72,7 @@ async function clearDatabase() {
 
 async function fetchGeocode(userInput) {
     const firstPart = "https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/findAddressCandidates?token=&SingleLine="
-    const secondPart = "&outFields=Addr_Type&forStorage=false&maxLocations=10&f=json"
+    const secondPart = "&outFields=Addr_Type,city,country&forStorage=false&maxLocations=10&f=json"
     const response = await fetch(firstPart + userInput + secondPart);
     const json = await response.json();
     return json;
@@ -75,6 +83,8 @@ async function setInputFieldsData(inputName) {
 
     for(let i = 0; i < dataBase.addressArray.length; i++) {
         if(inputFields[inputName].value === dataBase.addressArray[i] ){
+            inputFieldsData[inputName + "Country"] = dataBase.addressArray[i];
+            inputFieldsData[inputName + "City"] = dataBase.addressArray[i];
             inputFieldsData[inputName + "Address"] = dataBase.addressArray[i];
             inputFieldsData[inputName + "Longitude"] = dataBase.locationLongitudeArray[i];
             inputFieldsData[inputName + "Latitude"] = dataBase.locationLatitudeArray[i];
@@ -84,6 +94,8 @@ async function setInputFieldsData(inputName) {
 }
 
 async function clearInputFieldsData(inputName) {
+    inputFieldsData[inputName + "Country"] = null;
+    inputFieldsData[inputName + "City"] = null;
     inputFieldsData[inputName + "Address"] = null;
     inputFieldsData[inputName + "Longitude"] = null;
     inputFieldsData[inputName + "Latitude"] = null;
@@ -151,12 +163,6 @@ async function fetchDistance() {
     return json;
 }
 
-async function getEuroToHufExchangeRatio() {
-    const json = await fetchEuroExchangeRatio();
-    const exchangeRatio = await json.huf.rate;
-
-    return exchangeRatio;
-}
 
 async function fetchEuroExchangeRatio() {
     const response = await fetch("http://www.floatrates.com/daily/eur.json");
@@ -166,6 +172,7 @@ async function fetchEuroExchangeRatio() {
 }
 
 async function manipulatePriceFields() {
+    euroToHufExchangeRation = await fetchEuroExchangeRatio();
     const euro = 5000;
-    inputFields.euroPriceField.innerHTML = (euro * await fetchEuroExchangeRatio()).toFixed() + " €";
+    inputFields.euroPriceField.innerHTML = (euro * euroToHufExchangeRation).toFixed() + " €";
 }
