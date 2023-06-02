@@ -4,6 +4,7 @@ const dataBase = {
     addressArray: [],
     locationLongitudeArray: [],
     locationLatitudeArray: [],
+    euroToHufExchangeRate: null,
 }
 
 const inputFields = {
@@ -17,29 +18,46 @@ const inputFields = {
 }
 
 const inputFieldsData = {
-    inputOneName: "inputOne",
-    inputOneSuggestionAreaName: "suggestionAreaInputOne",
-    inputOneCountry: null,
-    inputOneCity: null,
-    inputOneAddress: null,
-    inputOneLongitude: null,
-    inputOneLatitude: null,
-    inputTwoName: "inputTwo",
-    inputTwoSuggestionAreaName: "suggestionAreaInputTwo",
-    inputTwoCountry: null,
-    inputTwoCity: null,
-    inputTwoAddress: null,
-    inputTwoLongitude: null,
-    inputTwoLatitude: null,
+    inputOne: {
+        name: "inputOne",
+        suggestionAreaName: "suggestionAreaInputOne",
+        country: null,
+        city: null,
+        address: null,
+        longitude: null,
+        latitude: null
+    },
+    inputTwo: {
+        name: "inputTwo",
+        suggestionAreaName: "suggestionAreaInputTwo",
+        country: null,
+        city: null,
+        address: null,
+        longitude: null,
+        latitude: null
+    }
 }
 
-inputFields.inputOne.addEventListener('input', () => inputEventListener(inputFieldsData.inputOneName, inputFieldsData.inputOneSuggestionAreaName));
-inputFields.inputTwo.addEventListener('input', () => inputEventListener(inputFieldsData.inputTwoName, inputFieldsData.inputTwoSuggestionAreaName));
-inputFields.inputOne.addEventListener('click', () => inputEventListener(inputFieldsData.inputOneName, inputFieldsData.inputOneSuggestionAreaName));
-inputFields.inputTwo.addEventListener('click', () => inputEventListener(inputFieldsData.inputTwoName, inputFieldsData.inputTwoSuggestionAreaName));
-this.addEventListener('click', () => removeSuggestionField(inputFieldsData.inputOneSuggestionAreaName));
-inputFields.calcuationButton.addEventListener('click',manipulatePriceFields);
+inputFields.inputOne.addEventListener('input', () => inputEventListener(inputFieldsData.inputOne.name, inputFieldsData.inputOne.suggestionAreaName));
+inputFields.inputTwo.addEventListener('input', () => inputEventListener(inputFieldsData.inputTwo.name, inputFieldsData.inputTwo.suggestionAreaName));
+inputFields.inputOne.addEventListener('click', () => inputEventListener(inputFieldsData.inputOne.name, inputFieldsData.inputOne.suggestionAreaName));
+inputFields.inputTwo.addEventListener('click', () => inputEventListener(inputFieldsData.inputTwo.name, inputFieldsData.inputTwo.suggestionAreaName));
+this.addEventListener('click', () => removeSuggestionField(inputFieldsData.inputOne.suggestionAreaName));
+inputFields.calcuationButton.addEventListener('click',() => console.log(dataBase.euroToHufExchangeRate));
 
+(async function setEuroToHufExchangeRate() {
+    const json = await fetchEuroExchangeRate();
+    const exchangeRate = await json.huf.rate;
+
+    dataBase.euroToHufExchangeRate = exchangeRate;
+})()
+
+
+async function fetchEuroExchangeRate() {
+    const response = await fetch("http://www.floatrates.com/daily/eur.json");
+    const json = await response.json();
+    return json;
+}
 
 async function inputEventListener(inputName, suggestionAreaName) {
     await buildDatabase(inputName);
@@ -55,8 +73,8 @@ async function buildDatabase(inputName) {
     let currentArrayId = 0;
 
     for(let data of rawData){
-        dataBase.countryArray[currentArrayId] = data.country;
-        dataBase.cityArray[currentArrayId] = data.city;
+        dataBase.countryArray[currentArrayId] = data.attributes.country;
+        dataBase.cityArray[currentArrayId] = data.attributes.city;
         dataBase.addressArray[currentArrayId] = data.address;
         dataBase.locationLongitudeArray[currentArrayId] = data.location.x;
         dataBase.locationLatitudeArray[currentArrayId] = data.location.y;
@@ -83,22 +101,22 @@ async function setInputFieldsData(inputName) {
 
     for(let i = 0; i < dataBase.addressArray.length; i++) {
         if(inputFields[inputName].value === dataBase.addressArray[i] ){
-            inputFieldsData[inputName + "Country"] = dataBase.addressArray[i];
-            inputFieldsData[inputName + "City"] = dataBase.addressArray[i];
-            inputFieldsData[inputName + "Address"] = dataBase.addressArray[i];
-            inputFieldsData[inputName + "Longitude"] = dataBase.locationLongitudeArray[i];
-            inputFieldsData[inputName + "Latitude"] = dataBase.locationLatitudeArray[i];
+            inputFieldsData[inputName].country = dataBase.countryArray[i];
+            inputFieldsData[inputName].city = dataBase.cityArray[i];
+            inputFieldsData[inputName].address = dataBase.addressArray[i];
+            inputFieldsData[inputName].longitude = dataBase.locationLongitudeArray[i];
+            inputFieldsData[inputName].latitude = dataBase.locationLatitudeArray[i];
             break;
         }
     }
 }
 
 async function clearInputFieldsData(inputName) {
-    inputFieldsData[inputName + "Country"] = null;
-    inputFieldsData[inputName + "City"] = null;
-    inputFieldsData[inputName + "Address"] = null;
-    inputFieldsData[inputName + "Longitude"] = null;
-    inputFieldsData[inputName + "Latitude"] = null;
+    inputFieldsData[inputName].country = null;
+    inputFieldsData[inputName].city = null;
+    inputFieldsData[inputName].address = null;
+    inputFieldsData[inputName].longitude = null;
+    inputFieldsData[inputName].latitude = null;
 }
 
 async function setSuggestionField(inputName, suggestionAreaName) {
@@ -113,18 +131,18 @@ async function createSuggestionField(inputName, suggestionAreaName) {
             removeSuggestionField(suggestionAreaName);
             break;
         }
-        let p = document.createElement('p');
-            p.innerHTML = address;
-            p.addEventListener('click', () => {
-                clickEvent(address,inputName,suggestionAreaName)
+        let suggestionP = document.createElement('p');
+            suggestionP.innerHTML = address;
+            suggestionP.addEventListener('click', () => {
+                clickEventForSuggestionP(address,inputName,suggestionAreaName)
             })
-            suggestions.appendChild(p);
+            suggestions.appendChild(suggestionP);
     }
 
     inputFields[suggestionAreaName].appendChild(suggestions);
 }
 
-async function clickEvent(inputFieldsValue,inputName,suggestionAreaName) {
+async function clickEventForSuggestionP(inputFieldsValue,inputName,suggestionAreaName) {
     inputFields[inputName].value = inputFieldsValue;
     await setInputFieldsData(inputName);
     removeSuggestionField(suggestionAreaName);
@@ -137,7 +155,11 @@ async function removeSuggestionField(suggestionAreaName) {
 }
 
 async function getDistanceInKilometers() {
-    if(inputFieldsData.inputOneAddress !== null && inputFieldsData.inputTwoAddress !== null){
+    const inputOneaddressNotNull = inputFieldsData.inputOne.address !== null;
+    const inputTwoAddressNotNull = inputFieldsData.inputTwoAddress !== null;
+    const euroToHufExchangeRateNotNull = dataBase.euroToHufExchangeRate !== null;
+    
+    if(inputOneaddressNotNull && inputTwoAddressNotNull && euroToHufExchangeRateNotNull){
         const json = await fetchDistance();
         const distance = json.routes[0].summary.lengthInMeters / 1000;
 
@@ -147,10 +169,10 @@ async function getDistanceInKilometers() {
 
 async function fetchDistance() {
     const url = "https://api.tomtom.com/routing/1/calculateRoute/"
-    const coordinates = inputFieldsData.inputOneLatitude + "," +
-                        inputFieldsData.inputOneLongitude + ":" +
-                        inputFieldsData.inputTwoLatitude + "," +
-                        inputFieldsData.inputTwoLongitude
+    const coordinates = inputFieldsData.inputOne.latitude + "," +
+                        inputFieldsData.inputOne.longitude + ":" +
+                        inputFieldsData.inputTwo.latitude + "," +
+                        inputFieldsData.inputTwo.longitude
     const parameters = "/json?maxAlternatives=1&" +
                        "computeBestOrder=false&" +
                        "computeTravelTimeFor=none&" +
@@ -164,15 +186,8 @@ async function fetchDistance() {
 }
 
 
-async function fetchEuroExchangeRatio() {
-    const response = await fetch("http://www.floatrates.com/daily/eur.json");
-    const json = await response.json();
-    const exchangeRatio = await json.huf.rate;
-    return exchangeRatio;
-}
-
 async function manipulatePriceFields() {
-    euroToHufExchangeRation = await fetchEuroExchangeRatio();
+    euroToHufExchangeRation = await fetchEuroExchangeRate();
     const euro = 5000;
     inputFields.euroPriceField.innerHTML = (euro * euroToHufExchangeRation).toFixed() + " €";
 }

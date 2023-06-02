@@ -9,13 +9,17 @@ body {
     background: url(/image/body_background.png);
 }
 
+#content {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+}
+
 #wellcome {
 }
 
 #galery {
-}
-
-#calculation {
 }
 
 #contact {

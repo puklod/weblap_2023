@@ -10,6 +10,10 @@
     background: green;
 }
 
+#calculation {
+    text-align: center;
+}
+
 #suggestionareainputone {
     position: absolute;
 }
