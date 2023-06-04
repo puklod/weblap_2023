@@ -19,7 +19,6 @@
                 <img src="/image/logo.webp" alt="logo">
             </div>
         </div>
-    <div id="beforecontent">
         <div id="content">
             <div id="wellcome">
                 <p><span>Our company main characteristics are quality with good prices and maximum realibility.</span></p>
@@ -41,10 +40,14 @@
             </div>
             <div id="calculation">
                 <div id="calculationinputfield">
+                    <span>Start</span>
                     <div>
                         <input type="text" id="inputone">
-                        <div id="suggestionareainputone"></div>
+                        <div>
+                            <div id="suggestionareainputone"></div>
+                        </div>
                     </div>
+                    <span>Destination</span>
                     <div>
                         <input type="text" id="inputtwo">
                         <div id="suggestionareainputtwo"></div>
@@ -52,13 +55,15 @@
                     <input type="button" value="calculate" id="calculationbutton">
                 </div>
                 <div id="calculationpricefield">
-                    <span>Calculated price:</span>
-                    <span id="europricefield">0 €</span>
-                    <span id="hufpricefield">0 HUF</span>
+                    <div id="pricefield">
+                        <span>Calculated price:</span>
+                        <span id="europricefield">0 €</span>
+                        <span id="hufpricefield">0 HUF</span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
         <script src="js/navigation.js"></script>
         <script src="js/galery.js"></script>
         <script src="js/calculation.js"></script>
