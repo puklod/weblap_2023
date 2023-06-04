@@ -8,15 +8,17 @@
         <script src="https://kit.fontawesome.com/8a2925c7fe.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div id="navbar">
-            <div id="navigation">
-                <div id="navicon">
-                    <i class="fa-solid fa-bars"></i>
+        <div id ="before-navbar">
+            <div id="navbar">
+                <div id="navigation">
+                    <div id="navicon">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <nav id="menu"></nav>
                 </div>
-                <nav id="menu"></nav>
-            </div>
-            <div id="logo">
-                <img src="/image/logo.webp" alt="logo">
+                <div id="logo">
+                    <img src="/image/logo.webp" alt="logo">
+                </div>
             </div>
         </div>
         <div id="content">
@@ -39,26 +41,26 @@
                 </div>
             </div>
             <div id="calculation">
-                <div id="calculationinputfield">
-                    <span>Start</span>
+                <div id="calculation-input-field">
+                    <p><span>Start</span></p>
                     <div>
-                        <input type="text" id="inputone">
+                        <input type="text" class="calculation-input" id="input-one">
                         <div>
-                            <div id="suggestionareainputone"></div>
+                            <div id="suggestion-area-input-one" class="suggestion-area"></div>
                         </div>
                     </div>
-                    <span>Destination</span>
+                    <p><span>Destination</span></p>
                     <div>
-                        <input type="text" id="inputtwo">
-                        <div id="suggestionareainputtwo"></div>
+                        <input type="text" class="calculation-input" id="input-two">
+                        <div id="suggestion-area-input-two" class="suggestion-area"></div>
                     </div>
-                    <input type="button" value="calculate" id="calculationbutton">
+                    <input type="button" value="calculate" id="calculation-button">
                 </div>
-                <div id="calculationpricefield">
+                <div id="calculation-price-field">
                     <div id="pricefield">
-                        <span>Calculated price:</span>
-                        <span id="europricefield">0 €</span>
-                        <span id="hufpricefield">0 HUF</span>
+                        <p><span>Calculated price:</span></p>
+                        <p><span id="euro-price">0 €</span></p>
+                        <p><span id="huf-price">0 HUF</span></p>
                     </div>
                 </div>
             </div>

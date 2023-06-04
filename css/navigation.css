@@ -1,6 +1,10 @@
+#before-navbar {
+    width: 100%;
+    position: fixed;
+}
+
 #navbar{
     background-image: url(/image/navbar_background.png);
-    padding: 1vw;
 }
 
 #navbar.big {
@@ -14,10 +18,18 @@
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
+    height: 300px;
 }
 
 #navigation.small-navigation {
     display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+#navigation > #menu > ul {
+    margin: 0;
+    padding: 0;
 }
 
 #navigation > #menu > ul  > li > a{
@@ -27,7 +39,7 @@
 }
 
 #navigation.small-navigation > #navicon {
-    font-size: 3.5vw;
+    font-size: 35px;
     display: flex;
     align-items: center;
     padding: 3vw;
@@ -38,7 +50,8 @@
     transition-timing-function: inherit;
     transition-duration: 0.2s;
     transition-delay: 0s;
-    margin-right: 21vw;
+    margin-right: 8vw;
+    margin-left: 8vw;
 }
 
 #navigation.small-navigation > #menu.closed {
@@ -54,7 +67,7 @@
 }
 
 #navigation.small-navigation > #menu > ul > li.opened{
-    font-size: 4vw;
+    font-size: 35px;
     transition-timing-function: inherit;
     transition-property: font-size;
     transition-delay: 0s;
@@ -131,5 +144,9 @@
 }
 
 #navbar.small > #logo {
-    margin-right: 28vw;
+    margin-right: 26vw;
+}
+
+#navbar.small > #logo > img {
+    height: 280px;
 }

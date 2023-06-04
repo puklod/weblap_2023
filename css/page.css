@@ -3,6 +3,14 @@
     src: url(/font/redressed.ttf);
 }
 
+html {
+    font-family:'Raleway', sans-serif;
+}
+
+input[type=text]:focus {
+    outline: none;
+  }
+
 body {
     margin:0;
     padding:0;

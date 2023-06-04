@@ -8,13 +8,13 @@ const dataBase = {
 }
 
 const inputFields = {
-    inputOne: document.querySelector('#inputone'),
-    suggestionAreaInputOne: document.querySelector('#suggestionareainputone'),
-    inputTwo: document.querySelector('#inputtwo'),
-    suggestionAreaInputTwo: document.querySelector('#suggestionareainputtwo'),
-    calcuationButton: document.querySelector('#calculationbutton'),
-    euroPriceField: document.querySelector('#europricefield'),
-    hufPriceField: document.querySelector("#hufpricefield")
+    inputOne: document.querySelector('#input-one'),
+    suggestionAreaInputOne: document.querySelector('#suggestion-area-input-one'),
+    inputTwo: document.querySelector('#input-two'),
+    suggestionAreaInputTwo: document.querySelector('#suggestion-area-input-two'),
+    calcuationButton: document.querySelector('#calculation-button'),
+    euroPriceField: document.querySelector('#euro-price'),
+    hufPriceField: document.querySelector('#huf-price')
 }
 
 const inputFieldsData = {
@@ -40,8 +40,8 @@ const inputFieldsData = {
 
 inputFields.inputOne.addEventListener('input', () => inputEventListener(inputFieldsData.inputOne.name, inputFieldsData.inputOne.suggestionAreaName));
 inputFields.inputTwo.addEventListener('input', () => inputEventListener(inputFieldsData.inputTwo.name, inputFieldsData.inputTwo.suggestionAreaName));
-inputFields.inputOne.addEventListener('click', () => inputEventListener(inputFieldsData.inputOne.name, inputFieldsData.inputOne.suggestionAreaName));
-inputFields.inputTwo.addEventListener('click', () => inputEventListener(inputFieldsData.inputTwo.name, inputFieldsData.inputTwo.suggestionAreaName));
+inputFields.inputOne.addEventListener('click', () => continueGivingSuggestions(inputFieldsData.inputOne.name, inputFieldsData.inputOne.suggestionAreaName));
+inputFields.inputTwo.addEventListener('click', () => continueGivingSuggestions(inputFieldsData.inputTwo.name, inputFieldsData.inputTwo.suggestionAreaName));
 this.addEventListener('click', () => removeSuggestionField(inputFieldsData.inputOne.suggestionAreaName));
 inputFields.calcuationButton.addEventListener('click',() => console.log(dataBase.euroToHufExchangeRate));
 
@@ -57,6 +57,12 @@ async function fetchEuroExchangeRate() {
     const response = await fetch("http://www.floatrates.com/daily/eur.json");
     const json = await response.json();
     return json;
+}
+
+async function continueGivingSuggestions(inputName, suggestionAreaName) {
+    if(inputFields[inputName].value !== ""){
+        await inputEventListener(inputName, suggestionAreaName);
+    }
 }
 
 async function inputEventListener(inputName, suggestionAreaName) {

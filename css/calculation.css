@@ -1,22 +1,19 @@
-#sugik1 {
-    width: 300px;
-    height: 300px;
-    background: green;
-}
-
-#sugik2 {
-    width: 300px;
-    height: 300px;
-    background: green;
-}
-
 #calculation {
+    width: 178px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
-#suggestionareainputone {
-    position: absolute;
+.calculation-input {
+    border: none;
+    width: 175px;
 }
 
-#suggestionareainputtwo {
+.suggestion-area {
     position: absolute;
+    background: white;
+    text-align: left;
+    width: 179px;
+    margin-top: 0px;  
 }
