@@ -11,10 +11,10 @@ createNavigation(navigation.menuNav);
 
 function createNavigation(menuNav) {
         
-    if(window.outerWidth >= 750 && !navigation.navigationDiv.classList.contains("big-navigation")){
+    if(window.innerWidth >= 750 && !navigation.navigationDiv.classList.contains("big-navigation")){
         cleanBeforeCreation();
         createBigNavigation();
-    } else if (window.outerWidth <= 749 && !navigation.navigationDiv.classList.contains("small-navigation")){
+    } else if (window.innerWidth <= 749 && !navigation.navigationDiv.classList.contains("small-navigation")){
         cleanBeforeCreation();
         createSmallNavigation();
     }   
