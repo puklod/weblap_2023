@@ -1,0 +1,19 @@
+#calculation {
+    width: 178px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.calculation-input {
+    border: none;
+    width: 175px;
+}
+
+.suggestion-area {
+    position: absolute;
+    background: white;
+    text-align: left;
+    width: 179px;
+    margin-top: 0px;  
+}

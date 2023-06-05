@@ -1,0 +1,152 @@
+#before-navbar {
+    width: 100%;
+    position: fixed;
+}
+
+#navbar{
+    background-image: url(/image/navbar_background.png);
+}
+
+#navbar.big {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#navbar.small {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    height: 300px;
+}
+
+#navigation.small-navigation {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+#navigation > #menu > ul {
+    margin: 0;
+    padding: 0;
+}
+
+#navigation > #menu > ul  > li > a{
+    font-family: redressed;
+    text-decoration: none;
+    color: black;
+}
+
+#navigation.small-navigation > #navicon {
+    font-size: 35px;
+    display: flex;
+    align-items: center;
+    padding: 3vw;
+}
+
+#navigation.small-navigation > #menu.opened {
+    transition-property: margin;
+    transition-timing-function: inherit;
+    transition-duration: 0.2s;
+    transition-delay: 0s;
+    margin-right: 8vw;
+    margin-left: 8vw;
+}
+
+#navigation.small-navigation > #menu.closed {
+    margin-right: 0vw;
+    transition-property: margin;
+    transition-timing-function: inherit;
+    transition-duration: 0.2s;
+    transition-delay: 0s;
+}
+
+#navigation.small-navigation > #menu > ul {
+    display: flex;
+}
+
+#navigation.small-navigation > #menu > ul > li.opened{
+    font-size: 35px;
+    transition-timing-function: inherit;
+    transition-property: font-size;
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+}
+
+#navigation.small-navigation > #menu > ul > li.opened > a{
+    padding: 3vw;
+}
+
+#navigation.small-navigation > #menu > ul > li.closed {
+    display: contents;
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+    transition-timing-function: inherit;
+    transition-property: font-size;
+    transition-delay: 0s;
+    transition-duration: 0.2s;
+}
+
+#navigation.big-navigation > #menu > ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+#navigation.big-navigation > #menu > ul  > li > a{
+    display: block;
+    font-size: 1.5vw;
+    padding: 1vw 1vw 1vw 1vw;
+}
+
+#navicon {
+    text-align: center;
+}
+
+#navicon.opened {
+    rotate: -90deg;
+    transition-property: rotate;
+    transition-timing-function: linear;
+    transition-duration: 0.2s;
+}
+
+#navicon.closed {
+    rotate: 0deg;
+    transition-property: rotate;
+    transition-timing-function: linear;
+    transition-duration: 0.2s;
+}
+
+#navul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+#menu > ul > li {
+    list-style: none;
+}
+
+#menu > ul > li:hover > a {
+    color: #daa520 !important;
+    background: black;
+}
+
+#navbar.big > #logo {
+    height: inherit;
+}
+
+#navbar.big > #logo > img {
+    height: 6vw;
+}
+
+#navbar.small > #logo {
+    margin-right: 26vw;
+}
+
+#navbar.small > #logo > img {
+    height: 280px;
+}

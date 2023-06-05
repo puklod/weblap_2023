@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="css/page.css">
+        <link rel="stylesheet" href="css/navigation.css">
+        <link rel="stylesheet" href="css/galery.css">
+        <link rel="stylesheet" href="css/calculation.css">
+        <script src="https://kit.fontawesome.com/8a2925c7fe.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id ="before-navbar">
+            <div id="navbar">
+                <div id="navigation">
+                    <div id="navicon">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                    <nav id="menu"></nav>
+                </div>
+                <div id="logo">
+                    <img src="/image/logo.webp" alt="logo">
+                </div>
+            </div>
+        </div>
+        <div id="content">
+            <div id="wellcome">
+                <p><span>Our company main characteristics are quality with good prices and maximum realibility.</span></p>
+                <p><span> We offer services during the whole year 0-24. We provide comfortable travel with our luxury category car, 
+                    from Budapest to every neighbouring country and vice versa.</span></p>
+                <p><span>We offer door to door services with stops and sightseeing possibilities, considering the desires of our clients.</span></p>
+                <p><span>With questions please reach out to our support.</span><br>
+                <span>For offers use the dedicated contact form.</span></p>
+            </div>
+            <div id="galery">
+                <div id="container">
+                    <div id="left-arrow" class="galery-arrow">
+                        <i class="fa-solid fa-circle-chevron-left"></i>
+                    </div>
+                    <div id="right-arrow" class="galery-arrow">
+                        <i class="fa-solid fa-circle-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div id="calculation">
+                <div id="calculation-input-field">
+                    <p><span>Start</span></p>
+                    <div>
+                        <input type="text" class="calculation-input" id="input-one">
+                        <div>
+                            <div id="suggestion-area-input-one" class="suggestion-area"></div>
+                        </div>
+                    </div>
+                    <p><span>Destination</span></p>
+                    <div>
+                        <input type="text" class="calculation-input" id="input-two">
+                        <div id="suggestion-area-input-two" class="suggestion-area"></div>
+                    </div>
+                    <input type="button" value="calculate" id="calculation-button">
+                </div>
+                <div id="calculation-price-field">
+                    <div id="pricefield">
+                        <p><span>Calculated price:</span></p>
+                        <p><span id="euro-price">0 €</span></p>
+                        <p><span id="huf-price">0 HUF</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/navigation.js"></script>
+        <script src="js/galery.js"></script>
+        <script src="js/calculation.js"></script>
+    </body>
+</html>
