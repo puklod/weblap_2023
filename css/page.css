@@ -18,18 +18,46 @@ body {
 }
 
 #content {
-    padding-top: 12vh;
     width: 80%;
     margin-left: auto;
     margin-right: auto;
     display: grid;
 }
 
-#wellcome {
+@media (min-width: 1200px) {
+
 }
 
-#galery {
+@media (min-width: 992px) {
+
+  
 }
 
-#contact {
+@media (min-width: 750px) {
+
+}
+
+@media (min-width: 500px) {
+
+}
+
+@media (min-width: 300px) {
+    #content{
+        padding-top: 20vh;
+    }
+
+    .content {
+        height: 80vh;
+    }
+
+    #about-us > div > p {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        text-align: justify;
+        font-size: 3vw;
+    }
+
+    #about-us > div p > img {
+        width: 80vw;
+    }
 }

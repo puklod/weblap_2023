@@ -3,7 +3,7 @@ const navigation = {
     navIcon: document.querySelector('#navicon'),
     navigationDiv: document.querySelector('#navigation'),
     menuNav: document.querySelector('#menu'),
-    menuItems: ["Egy", "Kettő", "Három", "Négy"],
+    menuItems: ["About us", "Prices", "Vehicle", "For offers"],
 }
 
 window.addEventListener('resize',createNavigation);
@@ -69,8 +69,10 @@ function createMenu() {
     const ul = document.createElement('ul');
     
     for (const itemName of navigation.menuItems) {
+        let href = "#" + itemName.toLocaleLowerCase().replace(" ","-");
+
         let bookMarkHref = document.createElement('a');
-            bookMarkHref.setAttribute('href',"#" + itemName);
+            bookMarkHref.setAttribute('href',href);
             bookMarkHref.innerHTML = itemName;
             bookMarkHref.addEventListener('click',menuAndliClassManipulation);
         let li = document.createElement('li');

@@ -221,17 +221,18 @@
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
-        height: 12vh;
+        height: 20vh;
     }
     
     #navigation.small-navigation {
         display: flex;
         flex-direction: row-reverse;
         align-items: center;
+        margin-right: 6vw;
     }
 
     #navigation.small-navigation > #navicon {
-        font-size: 2.5rem;
+        font-size: 3vh;
         display: flex;
         align-items: center;
         padding: 3vw;
@@ -242,8 +243,6 @@
         transition-timing-function: inherit;
         transition-duration: 0.2s;
         transition-delay: 0s;
-        margin-right: 11vw;
-        margin-left: 8vw;
     }
     
     #navigation.small-navigation > #menu.closed {
@@ -255,21 +254,24 @@
     }
     
     #navigation.small-navigation > #menu > ul {
-        display: flex;
+        display: table;
+        width: max-content;
     }
     
     #navigation.small-navigation > #menu > ul > li.opened{
-        font-size: 3rem;
+        font-size: 5vw;
+        float: left;
         transition-timing-function: inherit;
         transition-property: font-size;
         transition-delay: 0s;
         transition-duration: 0.2s;
     }
-    
+
     #navigation.small-navigation > #menu > ul > li.opened > a{
-        padding: 3vw;
+        padding: 2vw;
+        font-family: 'Alegreya SC', serif;
     }
-    
+        
     #navigation.small-navigation > #menu > ul > li.closed {
         display: contents;
         font-size: 0;
@@ -300,10 +302,10 @@
     }
 
     #navbar.small > #logo {
-        margin-right: 31vw;
+        margin-right: 24vw;
     }
     
     #navbar.small > #logo > img {
-        height: 10vh;
+        height: 15vh;
     }
 }
