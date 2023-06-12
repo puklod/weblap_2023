@@ -1,6 +1,7 @@
 const navigation = {
     navBar: document.querySelector('#navbar'),
     navIcon: document.querySelector('#navicon'),
+    logo: document.querySelector('#logo'),
     navigationDiv: document.querySelector('#navigation'),
     menuNav: document.querySelector('#menu'),
     menuItems: ["About us", "Prices", "Vehicle", "For offers"],
@@ -42,12 +43,15 @@ function cleanBeforeCreation() {
         navigation.menuNav.removeChild(navigation.menuNav.firstChild);
     }
 
+    if(navigation.logo.hasAttribute('class')){
+        navigation.logo.removeAttribute('class');
+    }
+
     navigation.navIcon.style.display = "none";
 }
 
 function createBigNavigation() {
 
-    
     navigation.navBar.classList.add("big");
     navigation.navigationDiv.classList.add("big-navigation");
 
@@ -91,7 +95,8 @@ function menuAndliClassManipulation() {
     }
 
     openedClosedClassSwitch(navigation.menuNav);
-    openedClosedClassSwitch(navigation.navIcon)
+    openedClosedClassSwitch(navigation.navIcon);
+    openedClosedClassSwitch(navigation.logo);
 }
 
 function openedClosedClassSwitch(object) {
