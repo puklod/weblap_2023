@@ -9,8 +9,6 @@
     display: flex;
     flex-wrap: wrap;
     place-content: center space-between;
-    width: 50vw;
-    height: 40vw;
     background-size: cover !important;
     transition-property: background-image;
     transition-duration: 300ms;
@@ -32,4 +30,47 @@
     transition-property: opacity;
     transition-duration: 200ms;
     transition-timing-function: linear;
+}
+
+@media (max-width: 299px) {
+
+}
+
+
+@media (min-width: 300px) {
+    #container {
+        width: 80vw;
+        height: 60vw;
+    }
+
+    .galery-arrow {
+        font-size: 7vw;
+    }
+}
+
+@media (min-width: 750px) {
+    #container {
+        width: 65vw;
+        height: 48vw;
+    }
+
+    .galery-arrow {
+        font-size: 5vw;
+    }
+
+}
+
+@media (min-width: 900px) {
+
+}
+
+@media (min-width: 1200px) {
+    #container {
+        width: 35vw;
+        height: 26vw;
+    }
+
+    .galery-arrow {
+        font-size: 2vw;
+    }
 }

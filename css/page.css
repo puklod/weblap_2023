@@ -14,40 +14,36 @@ input[type=text]:focus {
 body {
     margin:0;
     padding:0;
-    background: url(/image/body_background.png);
+    min-width: 300px;
 }
 
-#content {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+#body-content {
     display: grid;
 }
 
-@media (min-width: 1200px) {
-
+.background-one{
+    background: url(/image/body_background_one.png);
 }
 
-@media (min-width: 992px) {
-
-  
+.background-two{
+    background: url(/image/body_background_two.png);
 }
 
-@media (min-width: 750px) {
-
+.content {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-@media (min-width: 500px) {
 
-}
-
-@media (min-width: 300px) {
-    #content{
+@media (max-width: 299px) {
+    #body-content{
         padding-top: 20vh;
     }
 
     .content {
-        height: 80vh;
+        height: max-content;
+        min-height: 81vh;
     }
 
     #about-us > div > p {
@@ -57,7 +53,190 @@ body {
         font-size: 3vw;
     }
 
-    #about-us > div p > img {
+    .text-image > img {
         width: 80vw;
+    }
+}
+
+@media (min-width: 300px) and (min-height: 600px) {
+    #body-content{
+        padding-top: 20vh;
+    }
+
+    .first-content {
+        height: max-content;
+        min-height: 81vh;
+    }
+
+    .content {
+        height: max-content;
+        padding-bottom: 10vh;
+    }
+
+    .title {
+        height: 10vh;
+    }
+
+    .title > p {
+        font-family: sherif;
+        text-align: center;
+        font-size: 1.3rem;
+    }
+
+    .text > p {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        text-align: justify;
+        font-size: 1rem;
+    }
+
+    .text-image > img {
+        width: 80vw;
+    }
+}
+
+@media (min-width: 365px) and (min-height: 700px) {
+
+    #body-content{
+        padding-top: 20vh;
+    }
+
+    .first-content {
+        height: max-content;
+        min-height: 81vh;
+    }
+
+    .content {
+        height: max-content;
+        padding-bottom: 10vh;
+    }
+
+    .title {
+        height: 10vh;
+    }
+
+    .title > p {
+        font-family: sherif;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .text > p {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        text-align: justify;
+        font-size: 1.1rem;
+    }
+
+    .text-image > img {
+        width: 80vw;
+    }
+}
+
+@media (min-width: 400px) and (min-height: 800px) {
+    .text-image {
+        width: 80vw;
+    }
+    
+    #body-content{
+        padding-top: 20vh;
+    }
+
+    .first-content {
+        height: max-content;
+        min-height: 81vh;
+    }
+
+    .content {
+        height: max-content;
+        padding-bottom: 10vh;
+    }
+
+    .title {
+        height: 10vh;
+    }
+
+    .title > p {
+        font-family: sherif;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .text > p {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        text-align: justify;
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 750px) {
+    #body-content {
+        padding-top: 13vw;
+    }
+
+    .first-content {
+        min-height: max-content;
+    }
+}
+
+@media (min-width: 900px) {
+    #body-content {
+        padding-top: 9vw;
+    }
+
+    .first-content {
+        height: max-content;
+    }
+
+    .title > p {
+        font-family: sherif;
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    .text > p {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .text > p.text-image {
+        text-align: center;
+    }
+    .text-image > img {
+        width: 60vw;
+    }
+}
+
+@media (min-width: 1200px) {
+    #body-content {
+        padding-top: 9vw;
+    }
+
+    .first-content {
+        height: max-content;
+    }
+
+    .title > p {
+        font-family: sherif;
+        text-align: center;
+        font-size: 1.8rem;
+    }
+
+    .text > p {
+        margin-top: 2vh;
+        margin-bottom: 2vh;
+        text-align: center;
+        font-size: 1.4rem;
+    }
+
+    .text > p.text-image {
+        text-align: center;
+    }
+
+    .text-image > img {
+        width: 50vw;
     }
 }
