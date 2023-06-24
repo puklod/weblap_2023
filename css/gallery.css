@@ -1,4 +1,4 @@
-#galery {
+#gallery {
     display: flex;
     align-content: space-around;
     flex-wrap: wrap;
@@ -19,7 +19,7 @@
     border-image: url(/image/navbar_background.png) 100 round;
 }
 
-.galery-arrow {
+.gallery-arrow {
     display: flex;
     flex-wrap: wrap;
     height: 100%;
@@ -43,7 +43,7 @@
         height: 60vw;
     }
 
-    .galery-arrow {
+    .gallery-arrow {
         font-size: 7vw;
     }
 }
@@ -54,7 +54,7 @@
         height: 48vw;
     }
 
-    .galery-arrow {
+    .gallery-arrow {
         font-size: 5vw;
     }
 
@@ -70,7 +70,7 @@
         height: 26vw;
     }
 
-    .galery-arrow {
+    .gallery-arrow {
         font-size: 2vw;
     }
 }

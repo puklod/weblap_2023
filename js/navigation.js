@@ -4,7 +4,7 @@ const navigation = {
     logo: document.querySelector('#logo'),
     navigationDiv: document.querySelector('#navigation'),
     menuNav: document.querySelector('#menu'),
-    menuItems: ["About us", "Prices", "Vehicle", "For offers"],
+    menuItems: ["About us", "Prices", "Gallery", "For offers"],
 }
 
 window.addEventListener('resize',createNavigation);

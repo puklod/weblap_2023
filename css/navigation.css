@@ -57,12 +57,9 @@
     opacity: 100%;
 }
 
-#navbar.small>#logo.closed {
-    opacity: 100%;
-}
-
 #navbar.small>#logo.opened {
     opacity: 0%;
+    pointer-events: none;
 }
 
 #navbar.small>#logo>img {

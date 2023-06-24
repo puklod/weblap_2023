@@ -73,10 +73,6 @@ body {
         padding-bottom: 10vh;
     }
 
-    .title {
-        height: 10vh;
-    }
-
     .title > p {
         font-family: sherif;
         text-align: center;
@@ -109,10 +105,6 @@ body {
     .content {
         height: max-content;
         padding-bottom: 10vh;
-    }
-
-    .title {
-        height: 10vh;
     }
 
     .title > p {
@@ -150,10 +142,6 @@ body {
     .content {
         height: max-content;
         padding-bottom: 10vh;
-    }
-
-    .title {
-        height: 10vh;
     }
 
     .title > p {

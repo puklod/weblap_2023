@@ -1,34 +1,34 @@
 let currentImgNumber = 0;
 let isMouseOver = false;
-const galery = {
+const gallery = {
     leftArrow: document.querySelector('#left-arrow'),
     rightArrow: document.querySelector('#right-arrow'),
     imgElement: document.querySelector('#container'),
-    imgFilePath: "image/galery/",
+    imgFilePath: "image/gallery/",
     imgExtension: ".webp",
     size: 5,
     delay: 5000,
 };
 
-addEventListeners(galery.imgElement);
+addEventListeners(gallery.imgElement);
 autoPlay();
 
 
 function addEventListeners(imgElemnet) {
-    galery.imgElement.addEventListener('mouseover',() => {
+    gallery.imgElement.addEventListener('mouseover',() => {
         isMouseOver = true;
-        galery.leftArrow.style.opacity = "0.6";
-        galery.rightArrow.style.opacity = "0.6";
+        gallery.leftArrow.style.opacity = "0.6";
+        gallery.rightArrow.style.opacity = "0.6";
     });
     
-    galery.imgElement.addEventListener('mouseleave',() => {
+    gallery.imgElement.addEventListener('mouseleave',() => {
         isMouseOver = false;
-        galery.leftArrow.style.opacity = "0";
-        galery.rightArrow.style.opacity = "0";
+        gallery.leftArrow.style.opacity = "0";
+        gallery.rightArrow.style.opacity = "0";
     });
 
-    galery.leftArrow.addEventListener('click', stepBackward);
-    galery.rightArrow.addEventListener('click', stepForward);
+    gallery.leftArrow.addEventListener('click', stepBackward);
+    gallery.rightArrow.addEventListener('click', stepForward);
 
 }
 
@@ -39,7 +39,7 @@ function autoPlay() {
 
     setTimeout(() => {
         autoPlay();
-    }, galery.delay);
+    }, gallery.delay);
 
 }
 
@@ -54,19 +54,19 @@ function stepBackward() {
 }
 
 function setCurrentImgNumber(number) {
-    if(currentImgNumber + number > galery.size) {
+    if(currentImgNumber + number > gallery.size) {
         currentImgNumber = 1;
     } else if (currentImgNumber + number < 1) {
-        currentImgNumber = galery.size;
+        currentImgNumber = gallery.size;
     } else {
         currentImgNumber += number;
     }
 }
 
 function setBackgroundImage(imgNumber) {
-    galery.imgElement.style.backgroundImage = "url(" + generateImgFilePath(imgNumber) + ")";
+    gallery.imgElement.style.backgroundImage = "url(" + generateImgFilePath(imgNumber) + ")";
 }
 
 function generateImgFilePath(imgNumber) {
-    return galery.imgFilePath + "00" + imgNumber + galery.imgExtension;
+    return gallery.imgFilePath + "00" + imgNumber + gallery.imgExtension;
 }

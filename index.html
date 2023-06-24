@@ -4,7 +4,7 @@
         <meta name="viewport" content="min-width=300px, width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/page.css">
         <link rel="stylesheet" href="css/navigation.css">
-        <link rel="stylesheet" href="css/galery.css">
+        <link rel="stylesheet" href="css/gallery.css">
         <link rel="stylesheet" href="css/calculation.css">
         <script src="https://kit.fontawesome.com/8a2925c7fe.js" crossorigin="anonymous"></script>
     </head>
@@ -26,39 +26,76 @@
         <div id="body-content">
             <div class="background-one">
                 <div id="about-us" class="first-content content">
-                <div class="title">
-                    <p><span>GOLD TRIP BUDAPEST</span></p>
-                </div>
-                <div class="text">
-                <p class="text-image"><img src="/image/wellcome_image.webp"></p>
-                <p><span>Our company main characteristics are quality with good prices and maximum realibility.</span></p>
-                <p><span> We offer services during the whole year 0-24. We provide comfortable travel with our luxury category car, 
-                    from Budapest to every neighbouring country and vice versa.</span></p>
-                <p><span>We offer door to door services with stops and sightseeing possibilities, considering the desires of our clients.</span></p>
-                <p><span>With questions please reach out to our support.</span></p>
-                <p><span>For offers use the dedicated contact form.</span></p>
-                </div>
+                    <div class="title">
+                        <p><span>GOLD TRIP BUDAPEST</span></p>
+                    </div>
+                    <div class="text">
+                        <p class="text-image"><img src="/image/wellcome_image.webp"></p>
+                        <p><span>Our company main characteristics are quality with good prices and maximum realibility.</span></p>
+                        <p><span> We offer services during the whole year 0-24. We provide comfortable travel with our luxury category car, 
+                            from Budapest to every neighbouring country and vice versa.</span></p>
+                        <p><span>We offer door to door services with stops and sightseeing possibilities, considering the desires of our clients.</span></p>
+                        <p><span>With questions please reach out to our support.</span></p>
+                        <p><span>For offers use the dedicated contact form.</span></p>
+                    </div>
                 </div>
             </div>
             <div class="background-two">
-                <div id="galery" class="content">
+                <div id="prices" class="content">
+                    <div class="title">
+                        <p><spn>PRICES</spn></p>
+                    </div>
+                    <div class="text">
+                        <p>Fix prices</p>
+                        <p>One way:</p>
+                        <p>
+                            Airport -> Pest: 60€</br>
+                            Airport -> Buda: 70€
+                        </p>
+                        <p>Return:</p>
+                        <p>
+                            Airport -> Pest -> Airport: 110€</br>
+                            Airport -> Buda -> Airport: 120€
+                        </p>
+                        <p>Other prices in both directions:</p>
+                        <p>
+                            Budapest - Vienna - 320€</br>
+                            Budapest - Bratislava - 300€</br>
+                            Budapest - Prague - 550€</br>
+                            Budapest - Belgrade - 400€</br>
+                        </p>
+                        <p>Transfer to everywhere</p>
+                        <p>
+                            We are open to unique requests. We can spend our whole day with you, we do countryside transfers and many more.
+                            <a href="/pages/foroffers.php">Contact us</a> to get a personalized offer.
+                            Prices given in EUR will be changed to HUF on the official central rate of the Hungarian National Bank.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="background-one">
+                <div id="gallery" class="content">
                 <div class="title">
-                    <p><span>GALERY</span></p>
+                    <p><span>GALLERY</span></p>
                 </div>
                 <div id="container">
-                    <div id="left-arrow" class="galery-arrow">
+                    <div id="left-arrow" class="gallery-arrow">
                         <i class="fa-solid fa-circle-chevron-left"></i>
                     </div>
-                    <div id="right-arrow" class="galery-arrow">
+                    <div id="right-arrow" class="gallery-arrow">
                         <i class="fa-solid fa-circle-chevron-right"></i>
                     </div>
                 </div>
                 </div>
             </div>
-            <div class="background-one">
-                <div id="calculation" class="content">
-                <div id="calculation-input-field">
-                    <p><span>Start</span></p>
+            <div class="background-two">
+                <div id="for-offers">
+                    <div class="title">
+                        <p><span>FOR OFFERS</span></p>
+                    </div>
+                    <div id="calculation" class="content">
+                        <div id="calculation-input-field">
+                            <p><span>Start</span></p>
                     <div>
                         <input type="text" class="calculation-input" id="input-one">
                         <div>
@@ -74,7 +111,7 @@
                 </div>
                 <div id="calculation-price-field">
                     <div id="pricefield">
-                        <p><span>Calculated price:</span></p>
+                        <p><span>Estimated price:</span></p>
                         <p><span id="euro-price">0 €</span></p>
                         <p><span id="huf-price">0 HUF</span></p>
                     </div>
@@ -82,9 +119,10 @@
                 </div>
             </div>
         </div>
+        </div>
 
         <script src="js/navigation.js"></script>
-        <script src="js/galery.js"></script>
+        <script src="js/gallery.js"></script>
         <script src="js/calculation.js"></script>
     </body>
 </html>
