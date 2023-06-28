@@ -43,7 +43,8 @@ inputFields.inputTwo.addEventListener('input', () => inputEventListener(inputFie
 inputFields.inputOne.addEventListener('click', () => continueGivingSuggestions(inputFieldsData.inputOne.name, inputFieldsData.inputOne.suggestionAreaName));
 inputFields.inputTwo.addEventListener('click', () => continueGivingSuggestions(inputFieldsData.inputTwo.name, inputFieldsData.inputTwo.suggestionAreaName));
 this.addEventListener('click', () => removeSuggestionField(inputFieldsData.inputOne.suggestionAreaName));
-inputFields.calcuationButton.addEventListener('click',() => console.log(dataBase.euroToHufExchangeRate));
+this.addEventListener('click', () => removeSuggestionField(inputFieldsData.inputTwo.suggestionAreaName));
+inputFields.calcuationButton.addEventListener('click', () => manipulatePriceFields());
 
 (async function setEuroToHufExchangeRate() {
     const json = await fetchEuroExchangeRate();
@@ -193,7 +194,7 @@ async function fetchDistance() {
 
 
 async function manipulatePriceFields() {
-    euroToHufExchangeRation = await fetchEuroExchangeRate();
-    const euro = 5000;
-    inputFields.euroPriceField.innerHTML = (euro * euroToHufExchangeRation).toFixed() + " €";
+    const distance = await getDistanceInKilometers();
+    inputFields.euroPriceField.innerHTML = (distance).toFixed() + " €";
+    inputFields.hufPriceField.innerHTML = (distance * dataBase.euroToHufExchangeRate).toFixed() + " HUF";
 }
